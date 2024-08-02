@@ -9,14 +9,22 @@
 
     <context:property-placeholder location="musicPlayer.properties"/>
 
-    <bean id="musicBean" class="ua.klunniy.springcourse.model.impl.ClassicalMusic">
+    <bean id="classicalMusic" class="ua.klunniy.springcourse.model.impl.ClassicalMusic">
+    </bean>
+
+    <bean id="rockMusic" class="ua.klunniy.springcourse.model.impl.RockMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="ua.klunniy.springcourse.model.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <constructor-arg>
+            <list>
+                <ref bean="classicalMusic"/>
+                <ref bean="rockMusic"/>
+            </list>
+        </constructor-arg>
+
         <property name="name" value="${musicPlayer.name}"/>
     </bean>
-
 
 </beans>

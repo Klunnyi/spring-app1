@@ -1,17 +1,19 @@
 package ua.klunniy.springcourse.model;
 
+import java.util.List;
+
 public class MusicPlayer {
 
     private String name;
-    private final Music music;
+    private final List<Music> music;
 
     //IoC
-    public MusicPlayer(Music music) {
+    public MusicPlayer(List<Music> music) {
         this.music = music;
     }
 
     public void playMusic() {
-        System.out.println("Playing " + music.getSong());
+        music.forEach((x) -> System.out.println("Playing " + x.getSong()));
     }
 
     public String getName() {
