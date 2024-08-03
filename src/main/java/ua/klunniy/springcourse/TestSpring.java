@@ -1,20 +1,15 @@
 package ua.klunniy.springcourse;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ua.klunniy.springcourse.model.MusicPlayer;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ua.klunniy.springcourse.config.SpringConfig;
 import ua.klunniy.springcourse.model.TestBean;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContext.xml");
-
-//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//        musicPlayer.playMusic();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
         TestBean testBean = context.getBean("testBean", TestBean.class);
         System.out.println(testBean.getName());
-
         context.close();
     }
 }
