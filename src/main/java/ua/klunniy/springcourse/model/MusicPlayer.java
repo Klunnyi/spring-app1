@@ -1,7 +1,10 @@
 package ua.klunniy.springcourse.model;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class MusicPlayer {
 
     private String name;
